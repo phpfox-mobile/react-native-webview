@@ -126,7 +126,7 @@ public class RNCWebChromeClient extends WebChromeClient {
             return;
         }
         this.mCustomView = paramView;
-        this.mCustomView.setBackgroundColor(Color.BLACK);
+       
 
         Activity mActivity = reactContext.getCurrentActivity();
 
@@ -136,6 +136,7 @@ public class RNCWebChromeClient extends WebChromeClient {
 
         mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 
+        this.mCustomView.setBackgroundColor(Color.BLACK);
         ((FrameLayout)mActivity.getWindow().getDecorView()).addView(this.mCustomView,
                 new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
 
