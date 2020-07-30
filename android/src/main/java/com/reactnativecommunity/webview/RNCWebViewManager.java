@@ -47,7 +47,8 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.common.MapBuilder;
-import com.facebook.react.common.build.ReactBuildConfig;
+//import com.facebook.react.common.build.ReactBuildConfig;
+import com.facebook.react.BuildConfig;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -179,7 +180,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
       new LayoutParams(LayoutParams.MATCH_PARENT,
         LayoutParams.MATCH_PARENT));
 
-    if (ReactBuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       WebView.setWebContentsDebuggingEnabled(true);
     }
 
@@ -776,7 +777,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
     @Override
     public boolean onConsoleMessage(ConsoleMessage message) {
-      if (ReactBuildConfig.DEBUG) {
+      if (BuildConfig.DEBUG) {
         return super.onConsoleMessage(message);
       }
       // Ignore console logs in non debug builds.
@@ -912,12 +913,12 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
     @Override
     public void onHostResume() {
-      // do nothing
+      super.onResume();
     }
 
     @Override
     public void onHostPause() {
-      // do nothing
+      super.onPause();
     }
 
     @Override
